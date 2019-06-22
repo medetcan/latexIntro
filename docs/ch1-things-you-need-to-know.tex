@@ -1,0 +1,153 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+
+\title{Introduction to\LaTeX }
+\author{Medet Can Akuş}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Things You Need to Know}
+Tex is a computer program created by Donald E. Knuth. Main purpose of the TeX is to typeset and write\
+mathematical formulas with ease. \\
+\LaTeX\ built on the TeX language it further improves typesetting abilities by introducing predefined layout and macros.
+\LaTeX\ originally created by Leslie Lamport.\\
+\LaTeX\ assumes the role of the book designer.
+\subsection{\LaTeX\ Input Files}
+\begin{itemize}
+    \item \LaTeX\ files are simply text files containing instructions to how to structure to the document
+    \item A \LaTeX\ file ends with a .tex 
+\end{itemize}
+\subsubsection{Spaces}
+\begin{itemize}
+    \item Whitespace characters such as blank spaces, tabs are treated uniformly as "space" by \LaTeX\
+    \item Several consecutive white space characters are treated as one "space".
+    \item Beginning of the line with a white space is ignored and single new line simply treated as a white space
+    \item To instruct \LaTeX to create a new line use "\verb|\\|"
+    \item An Empty line between two lines of text defines the end of a paragraph.
+    \item More than one empty line treated as a line break.
+\end{itemize}
+\newpage
+\subsubsection{Special Characters}
+\begin{itemize}
+    \item Followings are the special characters in \LaTeX\
+    \begin{itemize}
+        \item \verb|#, $, ^, &, _, {, }, ~, \|
+    \end{itemize}
+    \item These special characters have special meaning to \LaTeX\
+    \item These can be escaped by prefixing them with \verb|\|
+    \item To use backslash as literally use \verb|\textbackslash|
+\end{itemize}
+\subsubsection{\LaTeX\ Commands}
+\begin{itemize}
+   \item \LaTeX\ commands are case sensitive. They start with a backslash.
+   \item \LaTeX\ commands are terminated by a space, a number or any other "non-letter"
+   \item Many \LaTeX\ commands have starred variant.
+   \item \LaTeX\ ignores whitespace after commands. To force a white space you can use\
+   empty parenthesis "\{\}" 
+   \item Some commands require a parameters, which has to be given between curly braces.
+   \item Some commands take optional parameters, which are inserted after the command name in square brackets
+   \item A \LaTeX\ command usually take take the form; \\ \verb|\command[optional parameters]{parameters}|
+\end{itemize}
+\subsubsection{Comments}
+\begin{itemize}
+    \item \verb|%| symbol signifies a comment
+    \item \LaTeX{} compiler ignores anything when it encounters \verb|%| symbol until the end of the line.
+    \item for multiline comments use \verb|\comment| environment by importing verbatim package.
+\end{itemize}
+\subsubsection{File Structure}
+\begin{itemize}
+    \item \LaTeX\ expects a certain structure to process the file.
+    \item Every file should start with a \verb|\documentclass{}| command!
+    \item To load a package use \verb|\usepackage{}| packages provide new features to your document.
+    \item To start writing the document use \verb|\begin{document}| and to end it use \verb|\end{document}|
+    \item Anything comes before \verb|\begin{document}| and after the \verb|\documentclass{}| is the preamble.
+\end{itemize}
+\subsubsection{Layout of the Document}
+\begin{itemize}
+    \item Type of document is specified with \verb|\documentclass[options]{class}| command.
+    \item List of classes;
+    \begin{itemize} 
+        \item article: for articles in scientific journals
+        \item proc: a class for proceedings.
+        \item report: for longer reports containing several chapters, small books.
+        \item books: for real books.
+        \item slides: for slides.
+    \end{itemize}
+    \item List of optional parameters;
+    \begin{itemize}
+        \item 10pt, 11pt, 12pt sets the font size.
+        \item a4paper, letterpaper defines the paper size.
+        \item fleqn Typesets displayed formulae left-aligned instead of centered.
+        \item onecolumn, twocolumn specifies column format.
+        \item twoside, oneside specifies whether double or single sided output should be generated.
+    \end{itemize}
+\end{itemize}
+\subsection{Packages}
+\begin{itemize}
+    \item If you want to extent your document with graphics, mathematical formulas you will probably need to use packages.
+    \item Packages are activated with \verb|\usepackage[options]{package}|
+    \item Package command are written inside of the preamble section of your source code. 
+    \item If you use any of the linux distributions you can invoke \verb|$ texdoc packagename| command to see documentation of the package
+\end{itemize}
+\subsection{Page Styles}
+\begin{itemize}
+    \item \LaTeX\ supports three predefined header/footer combinations --so called page styles.
+    \item \verb|\pagestyle{style}| command tells which page style to use.
+    \item If you intent to be more specific you can use \verb|\thispagestyle{style}| it only applies to page corresponding to the command.
+\end{itemize}
+\subsection{Files You May Encounter}
+\begin{itemize}
+   \item Some packages are so essential they are distributed with \LaTeX\
+   \item Here is a brief description of each one of them;
+   \begin{itemize}
+      \item doc: Allows to documentation of \LaTeX\ programs.
+      \item exscale: Provides a scaled versions of the math extension font.
+      \item fontenc: Specifies which font encoding \LaTeX\ should use.
+      \item ifthen: Provides commands of the form "if...then do...otherwise do...."
+      \item latexsym: To access the \LaTeX\ symbol font, you should use latexsym package.
+      \item makeidx: Provides commands for producing indexes.
+      \item syntonly: Processes a document without a typesetting it.
+      \item inputenc: Allows the specification of input encoding such as utf8.
+   \end{itemize}
+   \item Here is a brief description of each page styles;
+   \begin{itemize}
+      \item plain: prints the page numbers on bottom of the page, in middle of the footer. This is the default page style. 
+      \item headings: prints the current chapter heading and the page number in the header on each page, while footer remains empty.
+      \item empty: sets both the header and the footer to be empty.
+   \end{itemize}
+   \item When you work with \LaTeX\ you will encounter handful of intermediate files with different extension. \\
+   Here is a brief description of each one of them;
+   \begin{itemize}
+    \item .tex: \LaTeX\ and \TeX\ input file. Can be compiled with latex command. 
+    \item .sty: \LaTeX\ macro package. Load this into your \LaTeX\ document using \verb|\usepackage| command
+    \item .dtx: \LaTeX\ Documented \TeX. This is the main distribution format for \LaTeX\ style files.
+    \item .ins: The installer for the files contained in the matching .dtx file
+    \item .cls: Class files define what your document looks like.
+    \item .fd: Font description file telling \LaTeX\ about new fonts.
+   \end{itemize}
+   \item Following files are generated when you run \LaTeX\ on your input file.
+   \begin{itemize}
+       \item .dvi: Device independent file. This is the main result of a classical \LaTeX\ compile run.
+       \item .log: Gives a detailed account of what happened during the last compilation.
+       \item .toc: Stores all your section headers. It gets read in for the next compiler run and is used to produce the table of contents.
+       \item .lof: like the \verb|.toc| file but for the figures.
+       \item .lot: like the \verb|.toc| file but for the tables.
+       \item .aux: Another file that transports information from one compiler run to the next. Aux files are used for store information associated with cross references.
+       \item .idx: Stores the indexing information.
+       \item .ind: The processed index file. Ready for inclusion into your document on the next compile cycle.
+       \item .ilg: Log file for index generation process.
+   \end{itemize}
+\end{itemize}
+\subsection{Big Projects}
+\begin{itemize}
+   \item You can load your other input documents into the current context using \verb|\include{filename}| 
+   \item \verb|\includeonly{filename, filename, ...}| command can be used in the preamble. It allows you to instruct \LaTeX\ to only input some of the included files.
+   \item \verb|include{filename}| command includes the given file on a new page. Sometimes this is not desirable for these type of situations you can use \verb|\input{filename}|
+\end{itemize}
+\section{Typesetting Text}
+\begin{itemize}
+   \item d 
+\end{itemize}
+\end{document}
